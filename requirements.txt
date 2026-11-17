@@ -1,0 +1,40 @@
+# phishing_analyzer - dipendenze Python
+#
+# Le dipendenze sono divise in:
+#   - core: necessarie per eseguire l'orchestratore e i moduli lexical;
+#   - tls:   necessarie per i moduli TLS (modulo `cryptography` per parsing
+#            certificati avanzato; il modulo stdlib `ssl` è comunque sufficiente);
+#   - dns_whois: per WHOIS e DNS (python-whois, dnspython);
+#   - content: per fetch HTML e parsing (requests, beautifulsoup4, lxml);
+#   - dynamic: per headless browser (Playwright);
+#   - nlp: per analisi semantica (spacy + modello italiano, opzionale);
+#   - vision: per clonazione visiva (Pillow + imagehash, opzionale);
+#   - reputation: per API threat intel (requests già incluso);
+#   - ui (opzionali): rich o questionary per UX più ricca.
+#
+# Installazione minima (solo lexical + tls):
+#   pip install -r requirements.txt
+#
+# Installazione completa:
+#   pip install -r requirements.txt
+#   pip install -r requirements-extra.txt
+
+# === CORE ===
+pyyaml>=6.0            # parsing config/weights.yaml
+tldextract>=5.0        # estrazione registered domain e TLD
+
+# === TLS (modulo avanzato) ===
+cryptography>=42.0     # parsing X.509 avanzato (opzionale ma raccomandato)
+
+# === DNS / WHOIS (per completare gli scheletri) ===
+python-whois>=0.9      # interrogazione WHOIS
+dnspython>=2.6         # query DNS (A, MX, TXT, DNSKEY, ecc.)
+
+# === CONTENT ===
+requests>=2.31         # fetch HTTP
+beautifulsoup4>=4.12   # parsing HTML
+lxml>=5.0              # backend veloce per bs4
+
+# === UI (opzionale - per UX più ricca nel menu) ===
+rich>=13.0             # output colorato e tabelle
+questionary>=2.0       # menu interattivi con frecce

@@ -1,0 +1,22 @@
+# phishing_analyzer - dipendenze opzionali
+#
+# Installa con:  pip install -r requirements-extra.txt
+# Queste librerie sono opzionali e richieste solo per i parametri
+# avanzati (NLP, visione, sandbox, threat intel).
+
+# === NLP (parametro 27 - nlp_semantica) ===
+spacy>=3.7
+# Modello italiano leggero; scaricarlo separatamente con:
+#   python -m spacy download it_core_news_sm
+
+# === VISIONE (parametro 28 - clonazione_visiva) ===
+Pillow>=10.0
+imagehash>=4.3
+
+# === SANDBOX DINAMICA (sezione 5 - opzionale) ===
+playwright>=1.40
+# Dopo l'installazione, scarica i browser:
+#   python -m playwright install chromium
+
+# === UI AVANZATA (opzionale) ===
+# (già presenti in requirements.txt)
